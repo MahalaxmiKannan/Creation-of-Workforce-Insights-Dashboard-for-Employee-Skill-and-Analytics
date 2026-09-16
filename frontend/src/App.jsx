@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useOutletContext } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import LoginPage from './pages/LoginPage'
-import OverviewPage from './pages/OverviewPage'
 import AiAssistantPage from './pages/AiAssistantPage'
 import RetentionPage from './pages/RetentionPage'
 import PredictiveInsightsPage from './pages/PredictiveInsightsPage'
+import WorkforceInsightsPage from './pages/WorkforceInsightsPage'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import { RequireRole } from './components/RequireRole';
@@ -18,7 +18,8 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/login" element={<Navigate to="/" replace />} />
           <Route element={<ProtectedLayout />}>
-            <Route path="/dashboard" element={<OverviewRoute />} />
+            <Route path="/dashboard" element={<OverviewRoute section="overview" />} />
+            {['employees', 'performance', 'attendance', 'salary', 'promotion', 'attrition', 'risk'].map((section) => <Route key={section} path={`/${section}`} element={<WorkforceRoute section={section} />} />)}
             <Route
               path="/retention"
               element={
@@ -63,9 +64,13 @@ function ProtectedLayout() {
   )
 }
 
-function OverviewRoute() {
+function OverviewRoute({ section }) {
   const { filters } = useOutletContext()
-  return <OverviewPage filters={filters} />
+  return <WorkforceInsightsPage section={section} filters={filters} />
+}
+
+function WorkforceRoute({ section }) {
+  return <OverviewRoute section={section} />
 }
 
 export default App

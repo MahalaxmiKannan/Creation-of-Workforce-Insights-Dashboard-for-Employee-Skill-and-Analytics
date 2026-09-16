@@ -183,9 +183,6 @@ Restart FastAPI after changing the environment file. The frontend only needs the
 | `/dashboard`           | Workforce overview                             |
 | `/retention`           | Attrition and retention workspace              |
 | `/predictive-insights` | ML predictions and employee health dashboard   |
-| `/performance`         | Employee performance workspace                 |
-| `/dei`                 | Diversity, Equity, and Inclusion workspace     |
-| `/recruitment`         | Recruitment and talent flow workspace          |
 | `/ai-assistant`        | HR policy and workforce intelligence assistant |
 
 ## Demo Login

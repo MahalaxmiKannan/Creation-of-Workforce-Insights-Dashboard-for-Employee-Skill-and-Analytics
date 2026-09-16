@@ -4,13 +4,27 @@ import {
   LayoutDashboard,
   ShieldCheck,
   UserMinus,
+  Users,
+  Star,
+  CalendarCheck2,
+  WalletCards,
+  ArrowUp,
+  ArrowDownRight,
+  ShieldAlert,
 } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { hasPermission, ROUTE_PERMISSIONS } from '../rbacRules';
 const links = [
   { label: 'Workforce Overview', to: '/dashboard', icon: LayoutDashboard },
+  { label: 'Employees', to: '/employees', icon: Users },
+  { label: 'Performance', to: '/performance', icon: Star },
+  { label: 'Attendance', to: '/attendance', icon: CalendarCheck2 },
+  { label: 'Salary', to: '/salary', icon: WalletCards },
+  { label: 'Promotion', to: '/promotion', icon: ArrowUp },
   { label: 'Attrition & Retention', to: '/retention', icon: UserMinus },
+  { label: 'Attrition Insights', to: '/attrition', icon: ArrowDownRight },
+  { label: 'Risk Center', to: '/risk', icon: ShieldAlert },
   { label: 'Predictive Insights', to: '/predictive-insights', icon: BrainCircuit },
   { label: 'AI HR Assistant (RAG)', to: '/ai-assistant', icon: BotMessageSquare },
 ]
